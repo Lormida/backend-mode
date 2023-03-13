@@ -2,6 +2,13 @@ const express = require('express')
 const bodyParser  = require('body-parser')
 const cors = require('cors')
 
+require('dotenv').config()
+
+const DATABASE_URL = process.env.DATABASE_URL || 'ERROR'
+const POSTGRES_USER = process.env.POSTGRES_USER || 'ERROR'
+const POSTGRES_PASSWORD = process.env.POSTGRES_PASSWORD || 'ERROR'
+const POSTGRES_DB = process.env.POSTGRES_DB || 'ERROR'
+
 const { readRecords, insertRecord, deleteRecord } = require('./src/utils/records.js');
 
 
@@ -12,7 +19,7 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.get('/', (_, res) => {
-  res.send('Hello from the time saving service!')
+  res.send('Hello from the time saving service!', DATABASE_URL, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB)
 })
 
 app.get('/times', async (_, res) => {
