@@ -1,8 +1,8 @@
+require('dotenv').config()
 const express = require('express')
 const bodyParser  = require('body-parser')
 const cors = require('cors')
 
-require('dotenv').config()
 
 const DATABASE_URL = process.env.DATABASE_URL || 'ERROR'
 const POSTGRES_USER = process.env.POSTGRES_USER || 'ERROR'
@@ -19,7 +19,8 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.get('/', (_, res) => {
-  res.send('Hello from the time saving service!', DATABASE_URL, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB)
+  console.log(DATABASE_URL)
+  res.json({ hello: 'world', DATABASE_URL, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB})
 })
 
 app.get('/times', async (_, res) => {

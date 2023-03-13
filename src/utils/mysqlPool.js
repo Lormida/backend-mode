@@ -7,10 +7,8 @@ const POSTGRES_USER = process.env.POSTGRES_USER
 const POSTGRES_PASSWORD = process.env.POSTGRES_PASSWORD
 const POSTGRES_DB = process.env.POSTGRES_DB 
 
-console.table([DATABASE_URL,POSTGRES_USER,POSTGRES_PASSWORD,POSTGRES_DB])
 
 
-console.log('DB URL', DATABASE_URL)
 // const DATABASE_URL = "dpg-cg35td1mbg5fch37gv60-a.frankfurt-postgres.render.com"
 // const POSTGRES_USER = "admin"
 // const POSTGRES_PASSWORD = "0d3KVezX2JHsQfUFtYUhJyDlBVg3gMaA"
