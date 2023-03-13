@@ -16,7 +16,9 @@ const PORT = 5000
 
 const app = express()
 app.use(bodyParser.json())
-app.use(cors())
+app.use(cors({
+  origin: "*"
+}))
 
 app.get('/', (_, res) => {
   console.log(DATABASE_URL)
